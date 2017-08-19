@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+		*{margin:0;padding:0;}
+		#hh{width:300px;height:300px;background:skyblue;margin-left:35%;margin-top:5%;font-size:78px;line-height:300px;text-align:center;color:#fff;}
+		#btn{width: 200px;height:100px;margin-left:40%;margin-top:6%;line-height:100px;text-align:center;display:block;}
+</style>
+<body>	
+	<div id = "hh">10</div>
+	<input type="button" value="10s倒计时开始" id = "btn">
+</body>
+<script>
+//套路：
+//1.事件；点击按钮事件
+//2.改变了什么属性；数字在逐渐减小；
+//3.如何实现改变属性；点击onclick，定时器
+
+	function $(mc){
+		return document.getElementById(mc)
+	}//console.log("btn");
+	var oBtn = $("btn")
+	// console.log(oBtn)
+	var oHh = $("hh")
+	//console.log(oHh)
+	var index = 10;
+	var timer = null;
+	oBtn.onclick = function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			if(index==0){
+				clearInterval(timer);
+			}else{
+				index--;
+				oHh.innerHTML=index;
+			}
+				//console.log(1)
+		},1000)
+	}
+		
+</script>
+</html>
